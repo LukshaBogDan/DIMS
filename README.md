@@ -22,7 +22,8 @@ https://www.dustinhorne.com/post/2016/12/10/views-and-incorrect-data-in-entity-f
 ```
 git checkout <name of your branch>
 git pull --rebase origin <name of origin branch>
-(stach you shanges if you will be asked to do before pull and resolve conflicts if need)
+(stach you shanges if you will be asked to do before pull and resolve conflicts 
+if need and don't forget to apply your stach again)
 	
 git checkout -b <your-branch-name>
 git status
@@ -32,7 +33,8 @@ git push -u origin <name of your branch>  // -u or --set-upstream
 	
 git checkout dev
 git pull --rebase origin <name of origin branch> 
-(stach you shanges if you will be asked to do before pull and resolve conflicts if need)
+(stach you shanges if you will be asked to do before pull and resolve conflicts 
+if need and don't forget to apply your stach again)
 	
 git merge <name of your branch> dev
 git branch -d <name of your branch> //delete your branch after successful work completion
