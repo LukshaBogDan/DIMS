@@ -20,7 +20,7 @@ https://www.dustinhorne.com/post/2016/12/10/views-and-incorrect-data-in-entity-f
 4) ### Git workflow
 - name of branch: <your-name><feature>
 ```
-git checkout <name of origin branch>
+git checkout <name of your branch>
 git pull --rebase origin <name of origin branch>
 (stach you shanges if you will be asked to do before pull and resolve conflicts if need)
 	
