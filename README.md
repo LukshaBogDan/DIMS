@@ -20,19 +20,22 @@ https://www.dustinhorne.com/post/2016/12/10/views-and-incorrect-data-in-entity-f
 4) ### Git workflow
 - name of branch: <your-name><feature>
 ```
-git checkout dev
-git pull (resolve conflicts if need)
+git checkout <name of origin branch>
+git pull --rebase origin <name of origin branch>
+(stach you shanges if you will be asked to do before pull and resolve conflicts if need)
 	
 git checkout -b <your-branch-name>
 git status
 git add . / git add "<name-of-file>"
 git commit -m "<your-commit>"
-git push -u origin <your-branch-name>  // -u or --set-upstream
+git push -u origin <name of your branch>  // -u or --set-upstream
 	
 git checkout dev
-git pull (resolve conflicts if need)
-git merge <your-branch> dev
-git branch -d <your-branch>
+git pull --rebase origin <name of origin branch> 
+(stach you shanges if you will be asked to do before pull and resolve conflicts if need)
+	
+git merge <name of your branch> dev
+git branch -d <name of your branch> //delete your branch after successful work completion
 	
 git push
 ```
