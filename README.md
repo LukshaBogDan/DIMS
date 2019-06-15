@@ -16,13 +16,15 @@
 		3.4) commit your changes
 
 ### 4) Git workflow:
-Hot to name a branch: <br/>
-your-name/feature <br/>
-How to name a commit: <br/>
+#### Hot to name a branch:
+> your-name/feature
+
+#### How to name a commit:
 > Bad: "I added some features to my controller"
 > 
 > Good: "Add GetUser action to UsersController"
 
+#### Daily working process:
 ```
 git checkout <name of your branch>
 git pull --rebase origin <name of origin branch>
