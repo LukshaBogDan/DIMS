@@ -20,6 +20,7 @@ Hot to name a branch: <br/>
 your-name/feature <br/>
 How to name a commit: <br/>
 > Bad: "I added some features to my controller"
+> 
 > Good: "Add GetUser action to UsersController"
 
 ```
