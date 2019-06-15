@@ -75,13 +75,13 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HIMS.EF.DAL.Data\HIMS.DAL.Data.csproj">
+    <ProjectReference Include="..\DIMS.DAL.Data\DIMS.DAL.Data.csproj">
       <Project>{CAC997AA-EBE6-4E9F-B4FD-C3CBBD6DA146}</Project>
-      <Name>HIMS.DAL.Data</Name>
+      <Name>DIMS.DAL.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HIMS.EF.DAL.Identity\HIMS.DAL.Identity.csproj">
+    <ProjectReference Include="..\DIMS.DAL.Identity\DIMS.DAL.Identity.csproj">
       <Project>{8625574D-5575-49AF-BE6E-502A319E2C0A}</Project>
-      <Name>HIMS.DAL.Identity</Name>
+      <Name>DIMS.DAL.Identity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

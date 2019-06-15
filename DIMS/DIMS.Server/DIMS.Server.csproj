@@ -217,13 +217,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HIMS.BL\HIMS.BL.csproj">
+    <ProjectReference Include="..\DIMS.BL\DIMS.BL.csproj">
       <Project>{67F222E4-888B-4368-97ED-24096FA14E27}</Project>
-      <Name>HIMS.BL</Name>
+      <Name>DIMS.BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HIMS.EF.DAL.Data\HIMS.DAL.Data.csproj">
+    <ProjectReference Include="..\DIMS.DAL.Data\DIMS.DAL.Data.csproj">
       <Project>{CAC997AA-EBE6-4E9F-B4FD-C3CBBD6DA146}</Project>
-      <Name>HIMS.DAL.Data</Name>
+      <Name>DIMS.DAL.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

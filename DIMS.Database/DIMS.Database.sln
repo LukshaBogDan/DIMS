@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HIMS.Database", "HIMS.Database\HIMS.Database.sqlproj", "{441476E1-B83F-45A2-9154-AF0BF7C77321}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DIMS.Database", "DIMS.Database\DIMS.Database.sqlproj", "{441476E1-B83F-45A2-9154-AF0BF7C77321}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,5 +20,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A667349-FF60-4ACA-B53C-4FF7DEB607C6}
 	EndGlobalSection
 EndGlobal
