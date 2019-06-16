@@ -3,7 +3,7 @@
 	[UserId] INT IDENTITY NOT NULL, 
     [DirectionId] INT NOT NULL, 
     [Name] NVARCHAR(25) NOT NULL, 
-    [Email] NCHAR(10) NOT NULL, 
+    [Email] VARCHAR(25) NOT NULL, 
     [LastName] NVARCHAR(25) NOT NULL, 
     [Sex] CHAR NOT NULL, 
     [Education] NVARCHAR(250) NOT NULL, 
