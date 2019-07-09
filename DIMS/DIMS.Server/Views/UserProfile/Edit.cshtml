@@ -1,0 +1,116 @@
+﻿@model HIMS.Server.Models.UserProfileViewModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container" style="background-color:azure; max-width: 300px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×
+            </button>
+            <h3 id="ModalLabel">
+                Edit User Profile
+            </h3>
+        </div>
+        <div class="modal-body">
+            <fieldset>
+                <div class="editor-label hidden">
+                    @Html.LabelFor(model => model.UserId)
+                </div>
+                <div class="editor-label hidden">
+                    @Html.EditorFor(model => model.UserId)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.Name)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.LastName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Sex)
+                </div>
+                <div class="editor-label">
+                    @Html.DropDownListFor(model => model.Sex, new MultiSelectList(new string[] { "M", "W" }))
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.BirthDate)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.BirthDate)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MobilePhone)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.MobilePhone)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Skype)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.Skype)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Education)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.Education)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UniversityAverageScore)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.UniversityAverageScore)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MathScore)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.MathScore)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DirectionId)
+                </div>
+
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.DirectionId)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.StartDate)
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.StartDate)
+                </div>
+            </fieldset>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" value="Edit" class="btn btn-primary" />
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
+                Close
+            </button>
+
+        </div>
+    </div>
+
+
+}

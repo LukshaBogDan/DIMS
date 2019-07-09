@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="HIMSModel.UserTask" Width="1.5" PointX="3" PointY="0.5" />
         <AssociationConnector Association="HIMSModel.FK_UserTask_To_UserProfile" />
         <EntityTypeShape EntityType="HIMSModel.vUserProfile" Width="1.5" PointX="0.625" PointY="4.875" />
+        <EntityTypeShape EntityType="HIMSModel.C__RefactorLog" Width="1.5" PointX="3.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

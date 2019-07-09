@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HIMS.BL.DTO;
 using HIMS.BL.Models;
 using HIMS.EF.DAL.Data;
 using HIMS.Server.Models;
@@ -18,6 +19,14 @@ namespace HIMS.Server.utils
                 cfg.CreateMap<Sample, SampleDTO>();
                 cfg.CreateMap<SampleDTO, Sample>();
                 cfg.CreateMap<SampleViewModel, SampleDTO>();
+                cfg.CreateMap<UserProfile, UserProfileDTO>();
+                cfg.CreateMap<UserProfileDTO, UserProfile>();
+                cfg.CreateMap<UserProfileViewModel, UserProfileDTO>();
+                cfg.CreateMap<UserProfileDTO, UserProfileViewModel>();
+                cfg.CreateMap<vUserProfile, vUserProfileDTO>();
+                cfg.CreateMap<vUserProfileDTO, vUserProfile>();
+                cfg.CreateMap<vUserProfileViewModel, vUserProfileDTO>();
+                cfg.CreateMap<Direction, DirectionDTO>();
             });
         }
     }

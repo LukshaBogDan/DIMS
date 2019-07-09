@@ -1,0 +1,108 @@
+﻿@model HIMS.Server.Models.UserProfileViewModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container" style="background-color:azure; max-width: 300px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×
+            </button>
+            <h3 id="ModalLabel">
+                Details User Profile
+            </h3>
+        </div>
+        <div class="modal-body">
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Sex)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.Sex)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.BirthDate)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.BirthDate)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MobilePhone)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.MobilePhone)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Skype)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.Skype)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Education)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.Education)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UniversityAverageScore)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.UniversityAverageScore)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MathScore)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.MathScore)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DirectionId)
+                </div>
+                <div class="editor-label">
+                    @ViewBag.Direction;
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.StartDate)
+                </div>
+                <div class="editor-label">
+                    @Html.DisplayFor(model => model.StartDate)
+                </div>
+            </fieldset>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
+                Close
+            </button>
+
+        </div>
+    </div>
+
+
+}

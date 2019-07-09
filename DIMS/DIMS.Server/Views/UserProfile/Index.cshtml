@@ -1,0 +1,92 @@
+﻿@model IEnumerable<HIMS.Server.Models.vUserProfileViewModel>
+
+@{
+    ViewBag.Title = "User Profiles Page";
+    Layout = null;
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+<h2>Members manager</h2>
+
+<p>
+    @Html.ActionLink("Register", "Create", null, new { @class = "modal-link btn btn-success" })
+</p>
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Education)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </th>
+                <td>
+                    @Html.ActionLink(item.FullName, "Details", new { UserProfileId = item.UserId }, new { @class = "modal-link" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Education)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.ActionLink("Progress", "Index", "UserProgress", new { userId = item.UserId }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Tasks", null, null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", new { UserProfileId = item.UserId }, new { @class = "modal-link btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { UserProfileId = item.UserId }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div id="Modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+    
+</div>
+<script type="text/javascript">
+    //this script reset modal each time when you click on the link:
+    $(function () {
+        $(".modal-link").click(function (event) {
+            event.preventDefault();
+            console.log($(this).attr("href"));
+            $('#Modal').removeData("bs.modal");
+            $('#Modal').modal({ remote: $(this).attr("href") });
+         
+        });
+    })
+</script>

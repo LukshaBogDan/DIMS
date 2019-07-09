@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace HIMS.EF.DAL.Data.Interfaces
 {
-    public interface IProcedureManager
+    public interface IViewRepository<T>
     {
-        int GetSampleEntriesAmount(bool isAdmin);
-        void DeleteUser(int UserId);
+        T Get(int id);
+        IEnumerable<T> GetAll();
+        IEnumerable<T> Find(Func<T, Boolean> predicate);
     }
 }

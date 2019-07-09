@@ -17,6 +17,11 @@ namespace HIMS.EF.DAL.Data.Repositories
             _himsDbContext = new HIMSDbContext(connectionString);
         }
 
+        public void DeleteUser(int userId)
+        {
+            _himsDbContext.DeleteUser(userId);
+        }
+
         public int GetSampleEntriesAmount(bool isAdmin)
         {
             //ObjectParameter result = new ObjectParameter("result", typeof(int));

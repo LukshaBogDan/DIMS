@@ -46,6 +46,16 @@ namespace HIMS.EF.DAL.Data
         public virtual DbSet<UserTask> UserTasks { get; set; }
         public virtual DbSet<vUserProfile> vUserProfiles { get; set; }
 
+        /// <summary>Calls the stored procedure '[dbo].[DeleteUser]'</summary>
+        /// <param name="UserId">Parameter mapped onto the stored procedure parameter '@UserId'</param>
+        /// <returns>The number of rows affected, as reported by ADO.NET</returns>
+        public void DeleteUser(int UserId)
+        {
+            var cmd = CreateStoredProcCallCommand("[dbo].[DeleteUser]");
+            AddParameter(cmd, "@isAdmin", 0, ParameterDirection.Input, UserId);
+            ExecuteNonQueryCommand(cmd);
+        }
+
         /// <summary>Calls the stored procedure '[dbo].[SampleEntriesAmount]'</summary>
         /// <param name="isAdmin">Parameter mapped onto the stored procedure parameter '@isAdmin'</param>
         /// <param name="result">Parameter mapped onto the stored procedure parameter '@result'</param>
@@ -54,7 +64,7 @@ namespace HIMS.EF.DAL.Data
         {
             var cmd = CreateStoredProcCallCommand("[dbo].[SampleEntriesAmount]");
             AddParameter(cmd, "@isAdmin", 0, ParameterDirection.Input, isAdmin);
-            AddParameter(cmd, "@result", 0, ParameterDirection.InputOutput, result);
+            AddParameter(cmd, "@result", 1, ParameterDirection.InputOutput, result);
             var toReturn = ExecuteNonQueryCommand(cmd);
             result = GetParameterValue<System.Int32>(cmd.Parameters[1].Value);
             return toReturn;

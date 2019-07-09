@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HIMS.EF.DAL.Data.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,9 @@ namespace HIMS.EF.DAL.Data
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Sample> Samples { get; }
-
+        IRepository<UserProfile> UserProfiles { get; }
+        IRepository<Direction> Directions { get; }
+        IViewRepository<vUserProfile> VUserProfiles { get; }
         void Save();
     }
 }

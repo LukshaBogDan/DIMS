@@ -14,6 +14,9 @@ namespace HIMS.Server.utils
         {
             Bind<ISampleService>().To<SampleService>();
             Bind<IUserService>().To<UserService>();
+            Bind<IVUserProfileService>().To<VUserProfileService>();
+            Bind<IUserProfileService>().To<UserProfileService>();
+            Bind<IDirectionService>().To<DirectionService>();
         }
     }
 }
