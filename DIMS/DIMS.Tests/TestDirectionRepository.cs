@@ -1,16 +1,15 @@
-﻿using HIMS.EF.DAL.Data;
-using HIMS.Tests.Stub;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq
-    ;
+using HIMS.EF.DAL.Data;
+using HIMS.Tests.Stub;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HIMS.Tests
 {
-    [TestClass]
     public class TestDirectionRepository
     {
         private StubDirectionRepository stubDirectionRepository;
@@ -20,7 +19,7 @@ namespace HIMS.Tests
             stubDirectionRepository = new StubDirectionRepository();
         }
 
-        [TestMethod]
+        [Test]
         public void Create_UserProfile()
         {
             var expectedDirection = new Direction() { DirectionId = 4, Name = "SaleForth" };
@@ -30,7 +29,7 @@ namespace HIMS.Tests
             Assert.AreEqual(expectedDirection, stubDirectionRepository.Get(4));
         }
 
-        [TestMethod]
+        [Test]
         public void Delete_UserProfile()
         {
 
@@ -40,7 +39,7 @@ namespace HIMS.Tests
             Assert.AreEqual(null, stubDirectionRepository.Get(2));
         }
 
-        [TestMethod]
+        [Test]
         public void Get_UserProfileFromRepository_IsNotNull()
         {
             //Arrange
@@ -50,12 +49,12 @@ namespace HIMS.Tests
             var Direction = stubDirectionRepository.Get(2);
 
             //Assert
-            Assert.IsNotNull(Direction);
-            Assert.AreEqual(2, Direction.DirectionId);
+           // Assert.IsNotNull(Direction);
+            Assert.That(Direction.Name == "Java");
 
         }
 
-        [TestMethod]
+        [Test]
         public void Get_AllUserProfileFromRepository_IsNotNull()
         {
             var Direction = stubDirectionRepository.GetAll();
@@ -64,7 +63,7 @@ namespace HIMS.Tests
             Assert.AreEqual(3, Direction.Count());
         }
 
-        [TestMethod]
+        [Test]
         public void Get_FindVUserProfileFromRepository_IsNotNull()
         {
             var Direction = stubDirectionRepository.Find(x => x.Name == "Java").ToList();

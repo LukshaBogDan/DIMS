@@ -53,6 +53,7 @@ namespace HIMS.Server.Controllers
             SelectList selectListItems = new SelectList(directionDTOs, "Name", "Name");
             ViewBag.Direction = direction.Name;
             ViewBag.Directions = selectListItems;
+            ViewData["Directions"] = selectListItems;
             return View(userProfile);
         }
 
