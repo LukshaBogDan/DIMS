@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace HIMS.BL.Interfaces
 {
-    public interface ISampleService
+    public interface ISampleService : IGetEntries
     {
-        void SaveSample(SampleDTO sampleTM);
         SampleDTO GetSample(int? id);
+        IEnumerable<SampleDTO> GetSamples();
         void UpdateSample(SampleDTO sampleDTO);
         void DeleteSample(int? id);
-
-        IEnumerable<SampleDTO> GetSamples();
-        int GetSampleEntriesAmout(bool isAdmin);
+        void SaveSample(SampleDTO sampleTM);
         void Dispose();
     }
 }

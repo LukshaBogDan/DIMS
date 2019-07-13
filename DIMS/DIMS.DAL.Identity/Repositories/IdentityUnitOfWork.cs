@@ -1,11 +1,6 @@
-﻿using HIMS.EF.DAL.Data;
-using HIMS.EF.DAL.Identity.Interfaces;
-using HIMS.EF.DAL.Identity.Models;
+﻿using HIMS.EF.DAL.Identity.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HIMS.EF.DAL.Identity.Repositories

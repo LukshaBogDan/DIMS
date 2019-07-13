@@ -22,8 +22,10 @@ namespace HIMS.Server.Controllers
             _userService = userService;
         }
 
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+        private IAuthenticationManager AuthenticationManager 
+                => HttpContext.GetOwinContext().Authentication;
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
@@ -55,6 +57,7 @@ namespace HIMS.Server.Controllers
             return View(viewModel);
         }
 
+        [Authorize(Roles = "mentor, user")]
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
@@ -71,7 +74,9 @@ namespace HIMS.Server.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> Register(RegisterViewModel viewModel)
         {
+            // we use it only for testing, must to be removed in production-ready application
             await SetInitialDataAsync().ConfigureAwait(false);
+
             if (ModelState.IsValid)
             {
                 var userDto = new UserDTO
@@ -88,6 +93,7 @@ namespace HIMS.Server.Controllers
                 else
                     ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
             }
+
             return View(viewModel);
         }
 
