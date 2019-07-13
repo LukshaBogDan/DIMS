@@ -21,7 +21,9 @@ namespace HIMS.EF.DAL.Data.Repositories
         {
             //ObjectParameter result = new ObjectParameter("result", typeof(int));
             int result = 0;
+
             _himsDbContext.GetSampleEntriesAmount(isAdmin, ref result);
+
             return result;
         }
     }

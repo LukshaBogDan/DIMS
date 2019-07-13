@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace HIMS.Server.Controllers
 {
+    [AllowAnonymous]
     public class SampleController : Controller
     {
         private readonly ISampleService _sampleService;
