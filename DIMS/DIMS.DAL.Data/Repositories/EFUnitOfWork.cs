@@ -16,7 +16,7 @@ namespace HIMS.EF.DAL.Data.Repositories
             this._himsDbContext = new HIMSDbContext(connectionString);
         }
 
-        public IRepository<Sample> Samples => _sampleRepository ?? new SampleRepository(_himsDbContext);
+        public IRepository<Sample> Samples => _sampleRepository ?? (_sampleRepository = new SampleRepository(_himsDbContext));
 
         public void Save()
         {
