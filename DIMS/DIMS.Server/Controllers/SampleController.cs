@@ -30,7 +30,7 @@ namespace HIMS.Server.Controllers
             var samples = new SamplesListViewModel
             {
                 Samples = Mapper.Map<IEnumerable<SampleDTO>, List<SampleViewModel>>(sampleDtos),
-                SamplesAmount = _sampleService.GetSampleEntriesAmout(CurrentUser.IsAdmin)
+                SamplesAmount = _sampleService.GetEntriesAmout(CurrentUser.IsAdmin)
             };
 
             return View(samples);
