@@ -15,9 +15,9 @@ namespace HIMS.Tests.Stub
         {
             _UserProfiles = new List<UserProfile>()
             {
-                new UserProfile(){UserId = 1, Name = "Ivan"},
-                new UserProfile(){UserId = 2, Name = "Petr"},
-                new UserProfile(){UserId = 3, Name = "Maxim"},
+                new UserProfile(){UserId = 1, Name = "Ivan", DirectionId = 1},
+                new UserProfile(){UserId = 2, Name = "Petr", DirectionId = 2},
+                new UserProfile(){UserId = 3, Name = "Maxim", DirectionId = 1},
             };
         }
 

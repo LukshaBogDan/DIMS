@@ -1,16 +1,15 @@
-﻿using HIMS.EF.DAL.Data.Repositories;
-using HIMS.Tests.Stub;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using HIMS.EF.DAL.Data;
+using HIMS.Tests.Stub;
+using NUnit.Framework;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HIMS.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestVUserProfileRepository
     {
         private StubvUserProfileRepository stubvUserProfileRepository;
@@ -20,7 +19,7 @@ namespace HIMS.Tests
             stubvUserProfileRepository = new StubvUserProfileRepository();
         }
 
-        [TestMethod]
+        [Test]
         public void Get_VUserProfileFromRepository_IsNotNull()
         {
             //Arrange
@@ -35,7 +34,7 @@ namespace HIMS.Tests
 
         }
 
-        [TestMethod]
+        [Test]
         public void Get_AllVUserProfileFromRepository_IsNotNull()
         {
             var VUserProfiles = stubvUserProfileRepository.GetAll();
@@ -44,7 +43,7 @@ namespace HIMS.Tests
             Assert.AreEqual(3, VUserProfiles.Count());
         }
 
-        [TestMethod]
+        [Test]
         public void Get_FindVUserProfileFromRepository_IsNotNull()
         {
             var VUserProfile = stubvUserProfileRepository.Find(x => x.FullName == "Petr Petrov").ToList();
