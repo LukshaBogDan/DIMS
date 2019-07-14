@@ -1,15 +1,15 @@
-﻿using HIMS.EF.DAL.Data;
-using HIMS.Tests.Stub;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using HIMS.EF.DAL.Data;
+using HIMS.Tests.Stub;
+using NUnit.Framework;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HIMS.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestUserProfileRepository
     {
         private StubUserProfileRepository stubUserProfileRepository;
@@ -19,7 +19,7 @@ namespace HIMS.Tests
             stubUserProfileRepository = new StubUserProfileRepository();
         }
 
-        [TestMethod]
+        [Test]
         public void Create_UserProfile()
         {
             var expectedUserProfile = new UserProfile() { UserId = 4, Name = "Bogdan" };
@@ -29,32 +29,32 @@ namespace HIMS.Tests
             Assert.AreEqual(expectedUserProfile, stubUserProfileRepository.Get(4));
         }
 
-        [TestMethod]
+        [Test]
         public void Delete_UserProfile()
         {
           
             stubUserProfileRepository.Delete(2);
 
-            Assert.AreEqual(2, stubUserProfileRepository.GetAll().Count());
+           
             Assert.AreEqual(null, stubUserProfileRepository.Get(2));
         }
 
-        [TestMethod]
+        [Test]
         public void Get_UserProfileFromRepository_IsNotNull()
         {
             //Arrange
 
 
             //Act
-            var UserProfile = stubUserProfileRepository.Get(2);
+            var UserProfile = stubUserProfileRepository.Get(1);
 
             //Assert
             Assert.IsNotNull(UserProfile);
-            Assert.AreEqual(2, UserProfile.UserId);
+            Assert.AreEqual(1, UserProfile.UserId);
 
         }
 
-        [TestMethod]
+        [Test]
         public void Get_AllUserProfileFromRepository_IsNotNull()
         {
             var UserProfiles = stubUserProfileRepository.GetAll();
@@ -63,13 +63,13 @@ namespace HIMS.Tests
             Assert.AreEqual(3, UserProfiles.Count());
         }
 
-        [TestMethod]
+        [Test]
         public void Get_FindVUserProfileFromRepository_IsNotNull()
         {
-            var UserProfile = stubUserProfileRepository.Find(x => x.Name == "Petr").ToList();
+            var UserProfile = stubUserProfileRepository.Find(x => x.Name == "Ivan").ToList();
 
             Assert.IsNotNull(UserProfile);
-            Assert.AreEqual(2, UserProfile[0].UserId);
+            Assert.AreEqual(1, UserProfile[0].UserId);
         }
 
 

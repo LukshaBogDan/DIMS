@@ -39,6 +39,8 @@
                 </div>
                 <div class="editor-label">
                     @Html.DropDownListFor(model => model.Sex, new MultiSelectList(new string[] { "M", "W" }))
+                    @*@Html.RadioButtonFor(model => model.Sex, "M")
+                    @Html.RadioButtonFor(model => model.Sex, "W")*@
                 </div>
                 <div class="editor-label">
                     @Html.LabelFor(model => model.BirthDate)
