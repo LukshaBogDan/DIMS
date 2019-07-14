@@ -57,6 +57,14 @@ namespace HIMS.Server.Controllers
             return View(userProfile);
         }
 
+        [HttpPost]
+        public ActionResult Edit(UserProfileViewModel userProfile)
+        {
+            UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
+            _userProfileService.UpdateUserProfile(userProfileDTO);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -68,14 +76,6 @@ namespace HIMS.Server.Controllers
         {
             UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
             _userProfileService.CreateUserProfile(userProfileDTO);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult Edit(UserProfileViewModel userProfile)
-        {
-            UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
-            _userProfileService.UpdateUserProfile(userProfileDTO);
             return RedirectToAction("Index");
         }
 
