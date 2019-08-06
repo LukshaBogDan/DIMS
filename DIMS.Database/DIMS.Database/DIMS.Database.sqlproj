@@ -74,10 +74,12 @@
     <None Include="SeedData\UserProfileInitialData.sql" />
     <None Include="SeedData\DirectionInitialData.sql" />
     <Build Include="StoredProcedures\DeleteUser.sql" />
+    <Build Include="Tables\Progress.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SeedData\SampleInitialData.sql" />
     <PostDeploy Include="SeedData\Script.PostDeployment.sql" />
+    <None Include="SeedData\ProgressInitialData.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DIMS.Database.refactorlog" />
