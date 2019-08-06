@@ -24,34 +24,21 @@ namespace HIMS.Tests
         {
             var expectedDirection = new Direction() { DirectionId = 4, Name = "SaleForth" };
             stubDirectionRepository.Create(expectedDirection);
-
-           
-            Assert.That(expectedDirection == stubDirectionRepository.Get(4));
+            Assert.That(expectedDirection, Is.EqualTo(stubDirectionRepository.Get(4)));
         }
 
         [Test]
         public void Delete_Direction()
         {
-
             stubDirectionRepository.Delete(2);
-
-            
-            Assert.That(null == stubDirectionRepository.Get(2));
+            Assert.That(stubDirectionRepository.Get(2), Is.Null);
         }
 
         [Test]
         public void Get_Direction()
-        {
-            //Arrange
-
-
-            //Act
+        { 
             var Direction = stubDirectionRepository.Get(1);
-
-            //Assert
-           // Assert.IsNotNull(Direction);
-            Assert.That(Direction.Name == ".Net");
-
+            Assert.That(Direction.Name, Is.EqualTo(".Net"));
         }
 
         [Test]
