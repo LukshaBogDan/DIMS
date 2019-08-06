@@ -27,6 +27,10 @@ namespace HIMS.Server.utils
                 cfg.CreateMap<vUserProfileDTO, vUserProfile>();
                 cfg.CreateMap<vUserProfileViewModel, vUserProfileDTO>();
                 cfg.CreateMap<Direction, DirectionDTO>();
+                cfg.CreateMap<UserProfileDTO, UserDTO>();
+                cfg.CreateMap<Progress, ProgressDTO>();
+                cfg.CreateMap<ProgressDTO, Progress>();
+                cfg.CreateMap<ProgressViewModel, ProgressDTO>();
             });
         }
     }
