@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28922.388
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIMS.DAL.Identity", "DIMS.DAL.Identity\DIMS.DAL.Identity.csproj", "{8625574D-5575-49AF-BE6E-502A319E2C0A}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIMS.BL", "DIMS.BL\DIMS.BL.csproj", "{67F222E4-888B-4368-97ED-24096FA14E27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIMS.Tests", "DIMS.Tests\DIMS.Tests.csproj", "{1C16688F-5025-4EF0-9318-1B5FB3613F2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIMS.Email", "Email\DIMS.Email.csproj", "{CF73DDC7-D041-4458-A6F1-61070BBDAF51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1C16688F-5025-4EF0-9318-1B5FB3613F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C16688F-5025-4EF0-9318-1B5FB3613F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C16688F-5025-4EF0-9318-1B5FB3613F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF73DDC7-D041-4458-A6F1-61070BBDAF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF73DDC7-D041-4458-A6F1-61070BBDAF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF73DDC7-D041-4458-A6F1-61070BBDAF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF73DDC7-D041-4458-A6F1-61070BBDAF51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

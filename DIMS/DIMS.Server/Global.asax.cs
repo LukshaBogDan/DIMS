@@ -29,6 +29,9 @@ namespace HIMS.Server
             ModelValidatorProviders.Providers.Remove(
                 ModelValidatorProviders.Providers.OfType<DataAnnotationsModelValidatorProvider>().First());
 
+            // Add role mentor
+            // init method
+
             DependencyInjection();
         }
 
@@ -53,5 +56,7 @@ namespace HIMS.Server
 
             HttpContext.Current.Session.Add("__userObject", userObject);
         }
+
+        
     }
 }
