@@ -22,6 +22,12 @@ namespace HIMS.EF.DAL.Identity.Repositories
             _identityDbContext = new IdentityContext(connectionString);
             ApplicationRoleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(_identityDbContext));
             UserSecurityManager = new ApplicationUserManager(new UserStore<ApplicationUser>(_identityDbContext));
+            if (!ApplicationRoleManager.RoleExistsAsync("mentor").Result)
+            {
+                var role = new ApplicationRole();
+                role.Name = "mentor";
+                ApplicationRoleManager.CreateAsync(role);
+            }
         }
 
         public async Task SaveAsync()

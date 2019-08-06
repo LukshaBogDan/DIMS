@@ -11,6 +11,11 @@ namespace HIMS.EF.DAL.Identity.Models
     {
         public ApplicationUserManager(IUserStore<ApplicationUser> store) : base(store)
         {
+            PasswordValidator = new MinimumLengthValidator(4);
+            UserLockoutEnabledByDefault = true;
+            DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(3);
+            MaxFailedAccessAttemptsBeforeLockout = 5;
+            UserTokenProvider = new EmailTokenProvider<ApplicationUser>();
         }
     }
 }
