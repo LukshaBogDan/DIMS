@@ -1,5 +1,6 @@
 ﻿using HIMS.BL.Infrastructure;
 using HIMS.BL.Models;
+using HIMS.EF.DAL.Identity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,13 @@ namespace HIMS.BL.Interfaces
     public interface IUserService : IDisposable
     {
         Task<OperationDetails> Create(UserDTO userDto);
+        Task<OperationDetails> Delete(string email);
         Task<ClaimsIdentity> Authenticate(UserDTO userDto);
         Task SetInitialData(UserDTO adminDto, List<string> roles);
+        Task<string> GenerateToken(UserDTO user);
+        Task<ApplicationUser> FindByEmail(string email);
+        Task<ApplicationUser> FindByName(string email);
+        Task<bool> ConfirmEmail(ApplicationUser user, string token);
+
     }
 }
