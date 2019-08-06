@@ -2,21 +2,20 @@
 using HIMS.BL.DTO;
 using HIMS.BL.Interfaces;
 using HIMS.Server.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Mail;
+using System;
 
 namespace HIMS.Server.Controllers
 {
     public class UserProfileController : Controller
     {
-
         private readonly IVUserProfileService _vUserProfileService;
         private readonly IUserProfileService _userProfileService;
         private readonly IDirectionService _directionService;
-
 
         public UserProfileController(IVUserProfileService vUserProfileService, IUserProfileService userProfileService, IDirectionService directionService)
         {
@@ -50,7 +49,11 @@ namespace HIMS.Server.Controllers
             UserProfileViewModel userProfile = Mapper.Map<UserProfileDTO, UserProfileViewModel>(userProfileDTO);
             DirectionDTO direction = _directionService.GetDirection(userProfile.DirectionId);
             List<DirectionDTO> directionDTOs = _directionService.GetDirections().ToList();
-            SelectList selectListItems = new SelectList(directionDTOs, "Name", "Name");
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            foreach (var item in directionDTOs)
+            {
+                selectListItems.Add(new SelectListItem { Text = item.Name, Value = item.DirectionId.ToString() });
+            }
             ViewBag.Direction = direction.Name;
             ViewBag.Directions = selectListItems;
             ViewData["Directions"] = selectListItems;
@@ -60,9 +63,13 @@ namespace HIMS.Server.Controllers
         [HttpPost]
         public ActionResult Edit(UserProfileViewModel userProfile)
         {
-            UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
-            _userProfileService.UpdateUserProfile(userProfileDTO);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
+                _userProfileService.UpdateUserProfile(userProfileDTO);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpGet]
@@ -74,15 +81,27 @@ namespace HIMS.Server.Controllers
         [HttpPost]
         public ActionResult Create(UserProfileViewModel userProfile)
         {
-            UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
-            _userProfileService.CreateUserProfile(userProfileDTO);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                UserProfileDTO userProfileDTO = Mapper.Map<UserProfileViewModel, UserProfileDTO>(userProfile);
+                _userProfileService.CreateUserProfile(userProfileDTO);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpGet]
         public ActionResult Delete(int UserProfileId)
         {
-            _userProfileService.DeleteUserProfile(UserProfileId);
+            var userProfileDTO = _userProfileService.GetUserProfile(UserProfileId);
+            UserProfileViewModel userProfile = Mapper.Map<UserProfileDTO, UserProfileViewModel>(userProfileDTO);
+            return View(userProfile);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(UserProfileViewModel userProfile)
+        {
+            _userProfileService.DeleteUserProfile(userProfile.UserId);
             return RedirectToAction("Index");
         }
     }
