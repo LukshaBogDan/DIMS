@@ -49,6 +49,26 @@ namespace HIMS.BL.Services
             }
         }
 
+        public async Task<OperationDetails> Delete(string email)
+        {
+            ApplicationUser user = await Database.UserSecurityManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var result = Database.UserSecurityManager.Delete(user);
+
+                if (result.Errors.Count() > 0)
+                {
+                    return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+                }
+
+                return new OperationDetails(true, "User deletion by Email was done successfully! Email: ", email);
+            }
+            else
+            {
+                return new OperationDetails(false, "The user with such Email not found! Email: ", email);
+            }
+        }
+
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
         {
             ClaimsIdentity claim = null;
@@ -63,6 +83,24 @@ namespace HIMS.BL.Services
 
             return claim;
         }
+
+        public async Task<string> GenerateToken(UserDTO userDTO)
+        {
+            var user = await FindByEmail(userDTO.Email);
+
+            var token = await Database.UserSecurityManager.GenerateEmailConfirmationTokenAsync(user.Id).ConfigureAwait(false);
+
+            return token;
+        }
+
+        public async Task<bool> ConfirmEmail(ApplicationUser user, string token) =>
+            (await Database.UserSecurityManager.ConfirmEmailAsync(user.Id, token)).Succeeded;
+
+        public async Task<ApplicationUser> FindByEmail(string email) =>
+            await Database.UserSecurityManager.FindByEmailAsync(email).ConfigureAwait(false);
+
+        public async Task<ApplicationUser> FindByName(string id) =>
+            await Database.UserSecurityManager.FindByNameAsync(id).ConfigureAwait(false);
 
         // initial data
         public async Task SetInitialData(UserDTO adminDto, List<string> roles)
