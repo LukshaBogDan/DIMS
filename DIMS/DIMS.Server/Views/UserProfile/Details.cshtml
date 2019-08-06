@@ -5,104 +5,118 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="container" style="background-color:azure; max-width: 300px;">
+<div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                ×
+            <h4 class="modal-title w-60" id="ModalLabel">Create User Profile</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
             </button>
-            <h3 id="ModalLabel">
-                Details User Profile
-            </h3>
         </div>
         <div class="modal-body">
             <fieldset>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Name)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.Name)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.LastName)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.LastName)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Sex)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.Sex)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.BirthDate)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.BirthDate)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.MobilePhone)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.MobilePhone)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Email)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.Email)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Skype)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.Skype)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Address)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.Address)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Education)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.Education)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.UniversityAverageScore)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.UniversityAverageScore)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.MathScore)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.MathScore)
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.DirectionId)
-                </div>
-                <div class="editor-label">
-                    @ViewBag.Direction;
-                </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.StartDate)
-                </div>
-                <div class="editor-label">
-                    @Html.DisplayFor(model => model.StartDate)
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.BirthDate)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.BirthDate)
+                            @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Address)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.Address)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Skype)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.Skype)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Education)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.Education)
+                            @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.DirectionId)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.DirectionId)
+                            @Html.ValidationMessageFor(model => model.DirectionId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.StartDate)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.StartDate)
+                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.LastName)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.LastName)
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Sex)
+                        </div>
+                        <div class="editor-label">
+                            M:@Html.RadioButtonFor(model => model.Sex, "M")
+                            W:@Html.RadioButtonFor(model => model.Sex, "W")
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.MobilePhone)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.MobilePhone)
+                            @Html.ValidationMessageFor(model => model.MobilePhone, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Email)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.UniversityAverageScore)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.UniversityAverageScore)
+                            @Html.ValidationMessageFor(model => model.UniversityAverageScore, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.MathScore)
+                        </div>
+                        <div class="editor-label">
+                            @Html.DisplayFor(model => model.MathScore)
+                            @Html.ValidationMessageFor(model => model.MathScore, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                 </div>
             </fieldset>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-                Close
-            </button>
-
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
         </div>
     </div>
+</div>
 
 
 }
