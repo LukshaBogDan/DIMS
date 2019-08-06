@@ -1,0 +1,53 @@
+﻿@model HIMS.Server.Models.ProgressViewModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-60" id="ModalLabel">Create User Profile</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <fieldset>
+                    <div class="row">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.UserName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.DisplayFor(model => model.UserName))
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.TaskName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.DisplayFor(model => model.TaskName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.TrackNote)
+                            </div>
+                            <div class="editor-label">
+                                @Html.DisplayFor(model => model.TrackNote)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.TrackDate)
+                            </div>
+                            <div class="editor-label">
+                                @Html.DisplayFor(model => model.TrackDate)
+                            </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+}

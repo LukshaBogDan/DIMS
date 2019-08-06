@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HIMS.Server.Models.ProgressViewModel>
+
+@{
+    ViewBag.Title = "Progress Page";
+    Layout = null;
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+<h2>Progress</h2>
+
+<div class="container">
+    <table class="table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TaskName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrackNote)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrackDate)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </th>
+                    <td>
+                        @Html.ActionLink(item.TaskName, "Details", new { ProgressId = item.Id }, new { @class = "modal-link" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrackNote)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrackDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- Modal -->
+<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+
+</div>
+<script type="text/javascript">
+    //this script reset modal each time when you click on the link:
+    $(function () {
+        $(".modal-link").click(function (event) {
+            event.preventDefault();
+            console.log($(this).attr("href"));
+            $('#modal').removeData("bs.modal");
+            $('#modal').modal({ remote: $(this).attr("href") });
+
+        });
+    })
+</script>
