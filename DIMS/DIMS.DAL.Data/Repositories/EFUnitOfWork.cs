@@ -14,6 +14,7 @@ namespace HIMS.EF.DAL.Data.Repositories
         private UserProfileRepository _userProfileRepository;
         private DirectionRepository _directionRepository;
         private vUserProfileRepository _vUserProfileRepository;
+        private ProgressRepository _progressRepository;
 
         public EFUnitOfWork(string connectionString)
         {
@@ -25,6 +26,7 @@ namespace HIMS.EF.DAL.Data.Repositories
         public IRepository<UserProfile> UserProfiles => _userProfileRepository ?? (_userProfileRepository = new UserProfileRepository(_himsDbContext));
         public IRepository<Direction> Directions => _directionRepository ?? (_directionRepository = new DirectionRepository(_himsDbContext));
         public IViewRepository<vUserProfile> VUserProfiles => _vUserProfileRepository ?? (_vUserProfileRepository = new vUserProfileRepository(_himsDbContext));
+        public IRepository<Progress> Progress => _progressRepository ?? (_progressRepository = new ProgressRepository(_himsDbContext));
 
         public void Save()
         {

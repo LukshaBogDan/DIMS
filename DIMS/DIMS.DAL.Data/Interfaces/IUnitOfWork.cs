@@ -13,6 +13,7 @@ namespace HIMS.EF.DAL.Data
         IRepository<UserProfile> UserProfiles { get; }
         IRepository<Direction> Directions { get; }
         IViewRepository<vUserProfile> VUserProfiles { get; }
+        IRepository<Progress> Progress { get; }
         void Save();
     }
 }

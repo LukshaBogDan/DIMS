@@ -45,6 +45,7 @@ namespace HIMS.EF.DAL.Data
         public virtual DbSet<Sample> Samples { get; set; }
         public virtual DbSet<UserTask> UserTasks { get; set; }
         public virtual DbSet<vUserProfile> vUserProfiles { get; set; }
+        public virtual DbSet<Progress> Progress { get; set; }
 
         /// <summary>Calls the stored procedure '[dbo].[DeleteUser]'</summary>
         /// <param name="UserId">Parameter mapped onto the stored procedure parameter '@UserId'</param>

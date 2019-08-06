@@ -19,6 +19,17 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Progress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="10" />
+          <Property Name="TaskName" Type="nchar" MaxLength="10" />
+          <Property Name="TrackNote" Type="nchar" MaxLength="10" />
+          <Property Name="TrackDate" Type="date" />
+        </EntityType>
         <EntityType Name="Sample">
           <Key>
             <PropertyRef Name="SampleId" />
@@ -27,12 +38,6 @@
           <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DIMS.dbo.Test' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Test">
-          <Property Name="Id" Type="int" />
-          <Property Name="Name" Type="nchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="UserProfile">
           <Key>
             <PropertyRef Name="UserId" />
@@ -127,6 +132,7 @@ warning 6002: The table/view 'DIMS.dbo.vUserProfile' does not have a primary key
         <EntityContainer Name="HIMSModelStoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Direction" EntityType="Self.Direction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Progress" EntityType="Self.Progress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sample" EntityType="Self.Sample" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTask" EntityType="Self.UserTask" Schema="dbo" store:Type="Tables" />
@@ -203,6 +209,7 @@ warning 6002: The table/view 'DIMS.dbo.vUserProfile' does not have a primary key
           <FunctionImport Name="DeleteUser">
           <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Progresses" EntityType="HIMSModel.Progress" />
         </EntityContainer>
         <EntityType Name="Direction">
           <Key>
@@ -282,6 +289,17 @@ warning 6002: The table/view 'DIMS.dbo.vUserProfile' does not have a primary key
             <PropertyRef Name="OperationKey" />
           </Key>
           <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Progress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TaskName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TrackNote" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TrackDate" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -365,6 +383,18 @@ warning 6002: The table/view 'DIMS.dbo.vUserProfile' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="HIMSModel.Store.DeleteUser" />
+          <EntitySetMapping Name="Progresses">
+            <EntityTypeMapping TypeName="HIMSModel.Progress">
+              <MappingFragment StoreEntitySet="Progress">
+                <ScalarProperty Name="TrackDate" ColumnName="TrackDate" />
+                <ScalarProperty Name="TrackNote" ColumnName="TrackNote" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
