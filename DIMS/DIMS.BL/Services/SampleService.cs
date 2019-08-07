@@ -92,7 +92,7 @@ namespace HIMS.BL.Services
             Database.Save();
         }
 
-        public int GetSampleEntriesAmout(bool isAdmin = false)
+        public int GetEntriesAmout(bool isAdmin = false)
         {
             return Pm.GetSampleEntriesAmount(isAdmin);
         }
